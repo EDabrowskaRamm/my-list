@@ -5,13 +5,22 @@
   <div class="col-md-4 offset-md-4">
     <div class="card card-outline-primary">
       <div class="card-header">
-        {{ list.title }}
+        {{ title }}
       </div>
-      <div>
+      <div class="input-group">
         <input type="text" placeholder="new item" class="form-control">     
+        <button type="button" class="btn btn-primary" (click)="addItem()" >Add</button>
       </div>      
       <ul class="list-group list-group-flush">
-        <app-item></app-item>
+        <!-- <app-item *ngFor="let item of items" ></app-item> -->
+        <li class="list-group-item" 
+            *ngFor="let item of items" 
+            (click)="onSelect(item)" 
+            [class.selected]="item === selectedItem"> 
+            <input type="checkbox">
+            {{ newItem }} 
+            <i type="button" class="fa fa-window-close-o" aria-hidden="true"></i>
+          </li>
       </ul>
     </div>
   </div>

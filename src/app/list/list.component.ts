@@ -7,19 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  list: List = {
-    title: 'List title',
-    item: 'tost'
-  };
+  constructor() {
 
-  constructor() { }
+  }
 
   ngOnInit() {
   }
 
+  addItem() {
+    console.log('added');
+
+  }
+
+
+
 }
 
-export class List {
-  title: string;
-  item: string;
-}
+
