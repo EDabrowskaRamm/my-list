@@ -8,20 +8,23 @@
         {{ title }}
       </div>
       <div class="input-group">
-        <input type="text" placeholder="new item" class="form-control">     
-        <button type="button" class="btn btn-primary" (click)="addItem()" >Add</button>
+        <input type="text" placeholder="new item" class="form-control" #input 
+              (keyup.enter)="addItem(input.value); input.value='' " 
+              (blur)="addItem(input.value); input.value='' ">     
+        <button type="button" class="btn btn-primary" (click)="addItem(input.value)">Add</button>
       </div>      
       <ul class="list-group list-group-flush">
         <!-- <app-item *ngFor="let item of items" ></app-item> -->
         <li class="list-group-item" 
-            *ngFor="let item of items" 
-            (click)="onSelect(item)" 
-            [class.selected]="item === selectedItem"> 
-            <input type="checkbox">
-            {{ newItem }} 
-            <i type="button" class="fa fa-window-close-o" aria-hidden="true"></i>
+            *ngFor="let item of items; let i = index"> 
+            <input type="checkbox" value="{{ i }}" (change)="updateChecked(item, $event)" >
+            <span #itemText> {{ item }} </span>
+            <i type="button" class="fa fa-window-close-o" aria-hidden="true" (click)="removeItem(item)"></i>
           </li>
       </ul>
     </div>
   </div>
 </div>
+
+<!-- [style.text-decoration]="getStyle()" -->
+<!-- (click)="strike = !strike;" -->
