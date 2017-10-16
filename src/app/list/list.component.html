@@ -14,17 +14,13 @@
         <button type="button" class="btn btn-primary" (click)="addItem(input.value)">Add</button>
       </div>      
       <ul class="list-group list-group-flush">
-        <!-- <app-item *ngFor="let item of items" ></app-item> -->
         <li class="list-group-item" 
             *ngFor="let item of items; let i = index"> 
-            <input type="checkbox" value="{{ i }}" (change)="updateChecked(item, $event)" >
-            <span #itemText> {{ item }} </span>
+            <input type="checkbox" value="{{ i }}">
+            <span #itemText class="striked"> {{ item }} </span>
             <i type="button" class="fa fa-window-close-o" aria-hidden="true" (click)="removeItem(item)"></i>
           </li>
       </ul>
     </div>
   </div>
 </div>
-
-<!-- [style.text-decoration]="getStyle()" -->
-<!-- (click)="strike = !strike;" -->

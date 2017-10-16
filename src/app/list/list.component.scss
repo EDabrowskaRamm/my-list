@@ -5,8 +5,9 @@
     i {
         margin-left: auto;
     }
+
+    input[type=checkbox]:checked + span.striked {
+        text-decoration: line-through;
+    }
 }
 
-.selected {
-    text-decoration: line-through;
-}
