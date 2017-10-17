@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, Renderer2, ElementRef, QueryList } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -7,14 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() {  }
+  constructor(private _el: ElementRef, private _renderer: Renderer2) {  }
 
   @Input() input;
   title = 'Shopping list';
   items: any[] = [];
   selectedItem;
+  @ViewChildren('itemText') checkboxes: QueryList<any>;
 
-  ngOnInit() {   }
+  ngOnInit() { }
 
 // add list items
   addItem(input: string) {
@@ -31,6 +32,25 @@ export class ListComponent implements OnInit {
       this.selectedItem = null;
       // localStorage.removeItem("lastname");
     }
+  }
+
+  markCheck($event) {
+    // let itemText;
+    for (let i = 0; i <= this.checkboxes.length; i++) {
+      console.log(this.checkboxes[i]);
+    }
+// TRZEBA PRZEITEROWAĆ PO ITEMACH I ZAZNACZYĆ TYLKO TE KTÓRE KLIKNIĘTE EHH
+    // this.checkboxes.forEach(itemText => {
+    //   if ($event.checked) {
+    //     console.log(itemText.nativeElement);
+    //     this._renderer.addClass(itemText.nativeElement, 'striked');
+    //   } else {
+    //     this._renderer.removeClass(itemText.nativeElement, 'striked');
+    //     console.log('empty');
+    //   }
+    // });
+
+    // console.log($event);
   }
 
 }

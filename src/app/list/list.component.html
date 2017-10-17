@@ -1,26 +1,29 @@
-<p>
-  list works!
-</p>
-<div class="row">
-  <div class="col-md-4 offset-md-4">
-    <div class="card card-outline-primary">
-      <div class="card-header">
-        {{ title }}
-      </div>
-      <div class="input-group">
-        <input type="text" placeholder="new item" class="form-control" #input 
-              (keyup.enter)="addItem(input.value); input.value='' " 
-              (blur)="addItem(input.value); input.value='' ">     
-        <button type="button" class="btn btn-primary" (click)="addItem(input.value)">Add</button>
-      </div>      
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item" 
-            *ngFor="let item of items; let i = index"> 
-            <input type="checkbox" value="{{ i }}">
-            <span #itemText class="striked"> {{ item }} </span>
-            <i type="button" class="fa fa-window-close-o" aria-hidden="true" (click)="removeItem(item)"></i>
-          </li>
-      </ul>
-    </div>
+<div class="card">
+  <div class="card-header text-center">
+    {{ title }}
   </div>
+  <div class="input-group">
+    <input type="text" placeholder="New item" class="form-control" #input 
+           (keyup.enter)="addItem(input.value); input.value='' " 
+           (blur)="addItem(input.value); input.value='' ">    
+    <a href="#" class="hbtn hb-fill-bottom-rev-bg-br hpad2 hbor2" (click)="addItem(input.value)">
+      <i class="fa fa-plus" aria-hidden="true"></i> Add
+    </a> 
+  </div>      
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" 
+        *ngFor="let item of items; let i = index"> 
+      <label class="label">
+        <input class="label__checkbox" type="checkbox" value="{{ i }}" (click)="markCheck($event.target)"/>
+        <span class="label__text">
+          <span class="label__check">
+            <i class="fa fa-check icon"></i>
+          </span>
+        </span>
+      </label>
+      <!-- <input type="checkbox" value="{{ i }}" /> -->
+      <span #itemText> {{ item }} </span>
+      <i type="button" class="fa fa-window-close-o" aria-hidden="true" (click)="removeItem(item)"></i>
+    </li>
+  </ul>
 </div>
