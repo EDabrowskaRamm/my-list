@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, ViewChildren, Renderer2, ElementRef, QueryList } from '@angular/core';
+import { ListService } from '../list.service';
+import { List } from '../list';
 
 @Component({
   selector: 'app-list',
@@ -7,33 +9,55 @@ import { Component, OnInit, Input, ViewChildren, Renderer2, ElementRef, QueryLis
 })
 export class ListComponent implements OnInit {
 
-  constructor(private _el: ElementRef, private _renderer: Renderer2) {  }
+  constructor(private _el: ElementRef,
+              private _renderer: Renderer2,
+              private _service: ListService) {  }
 
   @Input() input;
   title = 'Shopping list';
   items: any[] = [];
-  selectedItem;
   @ViewChildren('itemText') checkboxes: QueryList<any>;
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.items = this._service.getAllItems(this.items).items;
+    console.log(this.items);
+  }
 
 // add list items
-  addItem(input: string) {
+  add(input: string) {
     if (input) {
       this.items.push(input);
-      // localStorage.setItem(item.value, input);
+      this._service.addItem(input);
     }
-    // console.log(localStorage);
   }
 // remove list item
-  removeItem(item) {
-    this.items = this.items.filter(j => j !== item);
-    if (this.selectedItem === item) {
-      this.selectedItem = null;
-      // localStorage.removeItem("lastname");
-    }
+  remove(item) {
+    this.items = this._service.removeItem(item);
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   markCheck($event) {
     // let itemText;
     for (let i = 0; i <= this.checkboxes.length; i++) {

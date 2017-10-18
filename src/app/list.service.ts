@@ -1,15 +1,37 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { List } from './list';
 
 @Injectable()
 export class ListService {
-  lastId: 0;
-  list: List[] = [];
+  @Input() input;
+  list = {
+    items: [],
+  };
+  items: any[] = [];
 
   constructor() { }
 
-  // addItem(item: Item) {}
-
-  getItems(): void {}
+  getAllItems(items): any {
+    if (localStorage.getItem('items') === null ||
+        localStorage.getItem('items') === undefined) {
+      localStorage.setItem('items', JSON.stringify(this.list));
+    } else {
+      this.items = JSON.parse(localStorage.getItem('items'));
+    }
+    return this.items;
+  }
+  // add list items
+  addItem(input: string) {
+    const items = JSON.parse(localStorage.getItem('items'));
+    this.list.items.push(input);
+    localStorage.setItem('items', JSON.stringify(this.list));
+  }
+// remove list item
+  removeItem(item) {
+    const items = JSON.parse(localStorage.getItem('items')).items;
+    this.list.items = items.filter(j => j !== item);
+    localStorage.setItem('items', JSON.stringify(this.list));
+    return this.list.items;
+  }
 
 }

@@ -4,9 +4,9 @@
   </div>
   <div class="input-group">
     <input type="text" placeholder="New item" class="form-control" #input 
-           (keyup.enter)="addItem(input.value); input.value='' " 
-           (blur)="addItem(input.value); input.value='' ">    
-    <a href="#" class="hbtn hb-fill-bottom-rev-bg-br hpad2 hbor2" (click)="addItem(input.value)">
+           (keyup.enter)="add(input.value); input.value='' " 
+           (blur)="add(input.value); input.value='' ">    
+    <a href="#" class="hbtn hb-fill-bottom-rev-bg-br hpad2 hbor2" (click)="add(input.value)">
       <i class="fa fa-plus" aria-hidden="true"></i> Add
     </a> 
   </div>      
@@ -23,7 +23,7 @@
       </label>
       <!-- <input type="checkbox" value="{{ i }}" /> -->
       <span #itemText> {{ item }} </span>
-      <i type="button" class="fa fa-window-close-o" aria-hidden="true" (click)="removeItem(item)"></i>
+      <i type="button" class="fa fa-window-close-o" aria-hidden="true" (click)="remove(item)"></i>
     </li>
   </ul>
 </div>
