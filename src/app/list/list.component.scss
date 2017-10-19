@@ -1,3 +1,4 @@
+// ogarná kiedy jest za duo znaków
 // add item button
 .hbtn {
     position: relative;
@@ -69,9 +70,6 @@ a {
 .list-group-item {
     input {
         margin-right: 1rem;
-    }
-    .fa-window-close-o {
-        margin-left: auto;
     }
 
     .striked {
@@ -162,6 +160,94 @@ a {
           opacity: 1;
         }
     }
+    // close
+    .del{
+        margin-left: auto;
+        .del__checkbox {
+            display: none;
+        }
+          
+        .del__check {
+            display: inline-block;
+            border-radius: 50%;
+            border: 5px solid rgba(0,0,0,0.1);
+            background: white;
+            vertical-align: middle;
+            margin-right: 20px;
+            width: 2em;
+            height: 2em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border .3s ease;
+            
+            i.icon {
+              opacity: 0.2;
+              font-size: 'calc(1rem + 1vw)';
+              color: transparent;
+              transition: opacity .3s .1s ease;
+              -webkit-text-stroke: 3px rgba(0,0,0,.5);
+            }
+            
+            &:hover {
+              border: 5px solid #0275d8;
+            }
+        }
+          
+        .del__checkbox:checked + .del__text .del__check {
+            animation: check .1s cubic-bezier(0.895, 0.030, 0.685, 0.220) forwards;
+            
+            .icon {
+              opacity: 1;
+              transform: scale(0);
+              color: white;
+              -webkit-text-stroke: 0;
+              animation: icon .1s cubic-bezier(1.000, 0.008, 0.565, 1.650) 1 forwards;
+            }
+        }
+          
+        .center {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%,-50%);
+        }
+          
+        @keyframes icon {
+            from {
+              opacity: 0;
+              transform: scale(0.3);
+            }
+            to {
+              opacity: 1;
+              transform: scale(1)
+            }
+        }
+          
+        @keyframes check {
+            0% {  
+                opacity: 0.1;
+                background: rgba(0,0,0,0.2);
+              }
+            10% {
+              opacity: 0.2;
+              background: rgba(0,0,0,0.2);
+            }
+            12% {
+              opacity: 0.4;
+              background: rgba(0,0,0,0.1);
+            }
+            50% {
+              background: #0275d8;
+              opacity: 0.6;
+            }
+            100% {
+              background: #0275d8;
+              opacity: 1;
+            }
+        }
+    }
+    
 }
 
 .card {

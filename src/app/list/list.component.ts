@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
   }
 // remove list item
   remove(item) {
-    this.items = this._service.removeItem(item);
+    return setTimeout(() => this.items = this._service.removeItem(item), 300);
   }
 
   markCheck($event) {

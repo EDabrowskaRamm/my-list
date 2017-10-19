@@ -21,9 +21,15 @@
           </span>
         </span>
       </label>
-      <!-- <input type="checkbox" value="{{ i }}" /> -->
       <span #itemText> {{ item }} </span>
-      <i type="button" class="fa fa-window-close-o" aria-hidden="true" (click)="remove(item)"></i>
+      <label class="del">
+        <input class="del__checkbox" type="checkbox" value="{{ i }}" (click)="remove(item)"/>
+        <span class="del__text">
+          <span class="del__check">
+            <i class="fa fa-times icon"></i>
+          </span>
+        </span>
+      </label>
     </li>
   </ul>
 </div>
