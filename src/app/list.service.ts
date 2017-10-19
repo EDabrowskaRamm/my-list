@@ -25,6 +25,7 @@ export class ListService {
     const items = JSON.parse(localStorage.getItem('items'));
     this.list.items.push(input);
     localStorage.setItem('items', JSON.stringify(this.list));
+    return this.list.items;
   }
 // remove list item
   removeItem(item) {
