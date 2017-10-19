@@ -21,7 +21,7 @@
           </span>
         </span>
       </label>
-      <span #itemText> {{ item }} </span>
+      <input #itemText value="{{ item }}">
       <label class="del">
         <input class="del__checkbox" type="checkbox" value="{{ i }}" (click)="remove(item)"/>
         <span class="del__text">

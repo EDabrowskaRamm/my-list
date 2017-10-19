@@ -71,7 +71,15 @@ a {
     input {
         margin-right: 1rem;
     }
-
+    .label + input {
+        margin-right: 0;
+        border: none;
+        &:active, &:focus {
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #0275d8;
+        }
+    }
     .striked {
         text-decoration: line-through;
     }

@@ -28,7 +28,17 @@ export class ListComponent implements OnInit {
   remove(item) {
     return setTimeout(() => this.items = this._service.removeItem(item), 300);
   }
-
+// edit item
+  // edit(item) {
+  //   this.selectedItem = item.text;
+  //   this.selectedItem = item;
+  //   console.log(item);
+  // }
+  // updateHero(event) {
+  //   if(this.selectedHero !== undefined) {
+  //     this.selectedHero.name = event.target.value;
+  //   }
+  // }
   markCheck($event) {
     console.log($event);
   }
