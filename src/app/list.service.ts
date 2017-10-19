@@ -8,6 +8,7 @@ export class ListService {
     items: [],
   };
   items: any[] = [];
+  newInputVal;
 
   constructor() { }
 
@@ -34,5 +35,9 @@ export class ListService {
     localStorage.setItem('items', JSON.stringify(this.list));
     return this.list.items;
   }
-
+  changeItem($event) {
+    // this.newInputVal = $event.target.value;
+    // this.list.items.push(this.newInputVal);
+    return $event;
+  }
 }

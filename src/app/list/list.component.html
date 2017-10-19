@@ -21,7 +21,7 @@
           </span>
         </span>
       </label>
-      <input #itemText value="{{ item }}">
+      <input #itemText value="{{ item }}" (keyup.enter)="valuechange($event)">
       <label class="del">
         <input class="del__checkbox" type="checkbox" value="{{ i }}" (click)="remove(item)"/>
         <span class="del__text">
