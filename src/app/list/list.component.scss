@@ -266,4 +266,11 @@ a {
     }
 }
 
-  
+// completed tasks list
+.completed {
+    .list-group-item{
+        input {
+            color: gray;
+        }
+    }
+}

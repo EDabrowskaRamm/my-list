@@ -34,13 +34,13 @@
   </ul>
 </div>
 <br>
-<div class="card" *ngIf="show">
+<div class="card completed" *ngIf="show">
   <div class="card-header text-center">
     {{ completeTitle }}
   </div>     
   <ul class="list-group list-group-flush">
     <li class="list-group-item" 
-        *ngFor="let citem of completedTasks; let j = index"> 
+        *ngFor="let task of completedTasks; let j = index"> 
       <label class="label">
         <input class="label__checkbox" type="checkbox" value="{{ j }}"/>
         <span class="label__text">
@@ -49,7 +49,7 @@
           </span>
         </span>
       </label>
-      <input #itemText value="{{ completeItem }}">
+      <input #itemText value="{{ task }}">
       <label class="del">
         <input class="del__checkbox" type="checkbox" value="{{ i }}"/>
         <span class="del__text">

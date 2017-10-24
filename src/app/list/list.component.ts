@@ -22,6 +22,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.items = this._service.getAllItems(this.items);
+    this.completedTasks = this._service.getAllCompletedItems(this.completedTasks);
   }
 
 // add list items
@@ -37,11 +38,9 @@ export class ListComponent implements OnInit {
 
   complete($event) {
     const completedValue = $event.parentElement.nextElementSibling.value;
-    const id = $event.value;
     this.items.splice(this.items.indexOf(completedValue), 1);
     this.completedTasks.push(completedValue);
-    // return this.completedTasks = this._service.completedItem();
-    console.log(this.completedTasks);
+    return this.completedTasks = this._service.addCompletedItem();
   }
 
   // valuechange($event) {

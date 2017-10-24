@@ -8,6 +8,7 @@ export class ListService {
 
   constructor() { }
 
+  // get all items from 1 todo array
   getAllItems(items): any {
     if (localStorage.getItem('items') === null ||
         localStorage.getItem('items') === undefined) {
@@ -15,6 +16,7 @@ export class ListService {
     } else {
       this.items = (localStorage.getItem('items')).split(',');
     }
+
     return this.items;
   }
   // add list items
@@ -29,14 +31,22 @@ export class ListService {
     localStorage.setItem('items', this.items.toString());
     return this.items;
   }
-  // changeItem($event) {
-  //   // this.newInputVal = $event.target.value;
-  //   // this.list.items.push(this.newInputVal);
-  //   return $event;
-  // }
 
-  completedItem() {
-    console.log(this.completedTasks);
+// get all completed tasks
+  getAllCompletedItems(items): any {
+    if (localStorage.getItem('completedTasks') === null ||
+        localStorage.getItem('completedTasks') === undefined) {
+      localStorage.setItem('completedTasks', this.completedTasks.toString());
+    } else {
+      this.completedTasks = (localStorage.getItem('completedTasks')).split(',');
+    }
+
+    return this.completedTasks;
+  }
+// add completed tasks to completed array and remove them from todo array
+  addCompletedItem() {
+    localStorage.setItem('completedTasks', this.completedTasks.toString());
+    localStorage.setItem('items', this.items.toString());
     return this.completedTasks;
   }
 }
