@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from '../list.service';
-import { List } from '../list';
 
 @Component({
   selector: 'app-list',
@@ -11,13 +10,18 @@ export class ListComponent implements OnInit {
 
   constructor(private _service: ListService) {  }
 
-  title = 'Shopping list';
-  items: any[] = [];
+  title = 'To do';
+  items = [];
   newInputVal;
   newItems: any[] = [];
 
+  completeTitle = 'Done';
+  show = true;
+  completedTasks: any[] = [];
+
+
   ngOnInit() {
-    this.items = this._service.getAllItems(this.items).items;
+    this.items = this._service.getAllItems(this.items);
   }
 
 // add list items
@@ -31,16 +35,21 @@ export class ListComponent implements OnInit {
     return setTimeout(() => this.items = this._service.removeItem(item), 300);
   }
 
-  markCheck($event) {
-    console.log($event);
+  complete($event) {
+    const completedValue = $event.parentElement.nextElementSibling.value;
+    const id = $event.value;
+    this.items.splice(this.items.indexOf(completedValue), 1);
+    this.completedTasks.push(completedValue);
+    // return this.completedTasks = this._service.completedItem();
+    console.log(this.completedTasks);
   }
 
-  valuechange($event) {
-    this.newInputVal = $event.target.value;
-    this.newItems.push(this.newInputVal);
+  // valuechange($event) {
+  //   this.newInputVal = $event.target.value;
+  //   this.newItems.push(this.newInputVal);
 
-    // this.items = this._service.changeItem(this.items);
-    console.log(this.newItems);
-  }
+  //   // this.items = this._service.changeItem(this.items);
+  //   // console.log(this.newItems);
+  // }
 
 }

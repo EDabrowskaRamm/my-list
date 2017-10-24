@@ -14,7 +14,7 @@
     <li class="list-group-item" 
         *ngFor="let item of items; let i = index"> 
       <label class="label">
-        <input class="label__checkbox" type="checkbox" value="{{ i }}" (click)="markCheck($event.target)"/>
+        <input class="label__checkbox" type="checkbox" value="{{ i }}" (click)="complete($event.target)"/>
         <span class="label__text">
           <span class="label__check">
             <i class="fa fa-check icon"></i>
@@ -24,6 +24,34 @@
       <input #itemText value="{{ item }}" (keyup.enter)="valuechange($event)">
       <label class="del">
         <input class="del__checkbox" type="checkbox" value="{{ i }}" (click)="remove(item)"/>
+        <span class="del__text">
+          <span class="del__check">
+            <i class="fa fa-times icon"></i>
+          </span>
+        </span>
+      </label>
+    </li>
+  </ul>
+</div>
+<br>
+<div class="card" *ngIf="show">
+  <div class="card-header text-center">
+    {{ completeTitle }}
+  </div>     
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" 
+        *ngFor="let citem of completedTasks; let j = index"> 
+      <label class="label">
+        <input class="label__checkbox" type="checkbox" value="{{ j }}"/>
+        <span class="label__text">
+          <span class="label__check">
+            <i class="fa fa-check icon"></i>
+          </span>
+        </span>
+      </label>
+      <input #itemText value="{{ completeItem }}">
+      <label class="del">
+        <input class="del__checkbox" type="checkbox" value="{{ i }}"/>
         <span class="del__text">
           <span class="del__check">
             <i class="fa fa-times icon"></i>

@@ -1,43 +1,42 @@
 import { Injectable, Input } from '@angular/core';
-import { List } from './list';
 
 @Injectable()
 export class ListService {
-  @Input() input;
-  list = {
-    items: [],
-  };
-  items: any[] = [];
+  items = [];
   newInputVal;
+  completedTasks: any[] = [];
 
   constructor() { }
 
   getAllItems(items): any {
     if (localStorage.getItem('items') === null ||
         localStorage.getItem('items') === undefined) {
-      localStorage.setItem('items', JSON.stringify(this.list));
+      localStorage.setItem('items', this.items.toString());
     } else {
-      this.items = JSON.parse(localStorage.getItem('items'));
+      this.items = (localStorage.getItem('items')).split(',');
     }
     return this.items;
   }
   // add list items
   addItem(input: string) {
-    const items = JSON.parse(localStorage.getItem('items'));
-    this.list.items.push(input);
-    localStorage.setItem('items', JSON.stringify(this.list));
-    return this.list.items;
+    this.items.push(input);
+    localStorage.setItem('items', this.items.toString());
+    return this.items;
   }
 // remove list item
   removeItem(item) {
-    const items = JSON.parse(localStorage.getItem('items')).items;
-    this.list.items = items.filter(j => j !== item);
-    localStorage.setItem('items', JSON.stringify(this.list));
-    return this.list.items;
+    this.items = this.items.filter(j => j !== item);
+    localStorage.setItem('items', this.items.toString());
+    return this.items;
   }
-  changeItem($event) {
-    // this.newInputVal = $event.target.value;
-    // this.list.items.push(this.newInputVal);
-    return $event;
+  // changeItem($event) {
+  //   // this.newInputVal = $event.target.value;
+  //   // this.list.items.push(this.newInputVal);
+  //   return $event;
+  // }
+
+  completedItem() {
+    console.log(this.completedTasks);
+    return this.completedTasks;
   }
 }
