@@ -42,7 +42,7 @@
     <li class="list-group-item" 
         *ngFor="let task of completedTasks; let j = index"> 
       <label class="label">
-        <input class="label__checkbox" type="checkbox" value="{{ j }}"/>
+        <input class="label__checkbox" type="checkbox" value="{{ j }}" (click)="edit($event.target)"/>
         <span class="label__text">
           <span class="label__check">
             <i class="fa fa-check icon"></i>

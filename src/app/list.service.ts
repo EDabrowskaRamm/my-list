@@ -55,4 +55,11 @@ export class ListService {
     localStorage.setItem('completedTasks', this.completedTasks.toString());
     return this.completedTasks;
   }
+// add edited task to todo array and remove it from completed array
+  addEditedItem() {
+    localStorage.setItem('items', this.items.toString());
+    localStorage.setItem('completedTasks', this.completedTasks.toString());
+    return this.items;
+  }
+
 }

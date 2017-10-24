@@ -42,10 +42,16 @@ export class ListComponent implements OnInit {
     this.completedTasks.push(completedValue);
     return this.completedTasks = this._service.addCompletedItem();
   }
-
+// remove completed tasks
   removeComplete(task) {
-    console.log(task);
-    return setTimeout(() => this.completedTasks = this._service.removeCompletedItem(task), 300);
+    return setTimeout(() =>
+      this.completedTasks = this._service.removeCompletedItem(task), 300);
   }
-
+// edit completed task
+  edit($event) {
+    const editedValue = $event.parentElement.nextElementSibling.value;
+    this.completedTasks.splice(this.completedTasks.indexOf(editedValue), 1);
+    this.items.push(editedValue);
+    return this.items = this._service.addEditedItem();
+  }
 }
