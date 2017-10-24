@@ -49,4 +49,10 @@ export class ListService {
     localStorage.setItem('items', this.items.toString());
     return this.completedTasks;
   }
+// remove list item
+  removeCompletedItem(task) {
+    this.completedTasks = this.completedTasks.filter(j => j !== task);
+    localStorage.setItem('completedTasks', this.completedTasks.toString());
+    return this.completedTasks;
+  }
 }

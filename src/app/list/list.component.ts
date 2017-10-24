@@ -10,11 +10,11 @@ export class ListComponent implements OnInit {
 
   constructor(private _service: ListService) {  }
 
+// todo list
   title = 'To do';
   items = [];
-  newInputVal;
-  newItems: any[] = [];
 
+// completed list
   completeTitle = 'Done';
   show = true;
   completedTasks: any[] = [];
@@ -25,17 +25,17 @@ export class ListComponent implements OnInit {
     this.completedTasks = this._service.getAllCompletedItems(this.completedTasks);
   }
 
-// add list items
+// add list items to todo list
   add(input: string) {
     if (input) {
       this.items = this._service.addItem(input);
     }
   }
-// remove list item
+// remove list item from todo list
   remove(item) {
     return setTimeout(() => this.items = this._service.removeItem(item), 300);
   }
-
+// add completed items to completed list and remove from todo list
   complete($event) {
     const completedValue = $event.parentElement.nextElementSibling.value;
     this.items.splice(this.items.indexOf(completedValue), 1);
@@ -43,12 +43,9 @@ export class ListComponent implements OnInit {
     return this.completedTasks = this._service.addCompletedItem();
   }
 
-  // valuechange($event) {
-  //   this.newInputVal = $event.target.value;
-  //   this.newItems.push(this.newInputVal);
-
-  //   // this.items = this._service.changeItem(this.items);
-  //   // console.log(this.newItems);
-  // }
+  removeComplete(task) {
+    console.log(task);
+    return setTimeout(() => this.completedTasks = this._service.removeCompletedItem(task), 300);
+  }
 
 }

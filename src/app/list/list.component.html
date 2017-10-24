@@ -51,7 +51,7 @@
       </label>
       <input #itemText value="{{ task }}">
       <label class="del">
-        <input class="del__checkbox" type="checkbox" value="{{ i }}"/>
+        <input class="del__checkbox" type="checkbox" value="{{ i }}" (click)="removeComplete(task)"/>
         <span class="del__text">
           <span class="del__check">
             <i class="fa fa-times icon"></i>
