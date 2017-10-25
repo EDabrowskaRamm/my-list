@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 
 import { ListService } from './list.service';
+import { StartpageComponent } from './startpage/startpage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
+    StartpageComponent
   ],
   imports: [
     BrowserModule
