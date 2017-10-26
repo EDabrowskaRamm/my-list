@@ -1,5 +1,8 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light">
   <div class="container">
-    <a class="navbar-brand" routerLink="/list">ToDo</a>
+    <a class="navbar-brand" (click)="scrollTo(target)" >ToDo</a>
   </div>  
 </nav>
+<div class="parallax"></div>
+<span #target></span>
+<app-list></app-list>
