@@ -1,3 +1,126 @@
-.navbar {
+.navbar, footer {
     background-color: #e9ecef;
+}
+
+.navbar {
+    .logo {
+        font-family: 'Pacifico', cursive !important;
+        font-size: 2.5rem;        
+    }
+    .about {
+        cursor: pointer;
+    }
+}
+
+
+.parallax{
+    display: flex;
+    justify-content: center;
+
+    span {
+        align-self: center;
+    }
+
+    h1 {
+        color: black;
+        // text-shadow: -1px 0 #0275d8, 0 1px #0275d8, 1px 0 #0275d8, 0 -1px #0275d8;
+    }
+
+    hbtn {
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        overflow: hidden;
+        padding: 8px 20px;
+        margin: 0px 3px 6px;
+        text-align: center;
+        border: 2px solid #e9ecef;
+        text-decoration: none;
+        color: #e9ecef;
+        white-space: nowrap;
+        z-index: 0;
+    } 
+    
+    .hbtn i {
+        padding-right: 8px;
+    } 
+    
+    .hb-border-top-br3::after {
+        border-radius: 50px;
+        box-sizing: border-box;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        content: "";
+        border: 2px solid #e9ecef;
+        z-index: 2;
+        margin: 0px;
+        top: 0px;
+        right: 0px;
+        border-bottom-width: 2px;
+        transition: border-bottom-width 0.1s 0.2s, height 0.2s 0.1s, width 0.2s 0s, margin 0.2s 0s;
+    } 
+    
+    .hb-border-top-br3 {
+        position: relative;
+        transition-duration: 0.3s;
+        overflow: visible;
+        box-sizing: border-box;
+        border: none;
+        padding: 10px 22px;
+    } 
+    
+    .hb-border-top-br3:hover::after {
+        width: 60%;
+        height: 0px;
+        border-width: 2px 2px 0px;
+        margin: 0px 20%;
+        transition: border-bottom-width 0.1s 0s, height 0.2s 0.1s, width 0.2s 0.2s, margin 0.2s 0.2s;
+    } 
+    
+    .hpill {
+        border-radius: 50px;
+    } 
+    
+    .hpad2 {
+        padding: 12px 24px !important;
+    } 
+    
+    .hbor2 {
+        border-width: 2px;
+    } 
+    
+    .hbor2::before {
+        border-width: 2px !important;
+    } 
+    
+    a {
+        font-size: 1.4rem;
+        &:hover, &:active, &:focus {
+            text-decoration: none;
+        }
+    }
+}
+
+.about{
+    .container {
+        display: flex;
+        justify-content: space-between;
+        margin: 2rem auto;
+        
+        p {
+            display: inline-flex;
+            align-self: center;
+        }
+    
+        img {
+            height: 50%;
+            width: 50%;
+        }
+    }
+    
+}
+
+footer {
+    padding: .5rem;
 }
