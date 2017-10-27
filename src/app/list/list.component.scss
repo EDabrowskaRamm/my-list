@@ -1,4 +1,3 @@
-// ogarná kiedy jest za duo znaków
 // add item button
 .hbtn {
     position: relative;
@@ -263,6 +262,7 @@ a {
     border-radius: .95rem .95rem 0 0;
     .card-header {
         border-radius: .95rem .95rem 0 0;
+        font-family: 'Pacifico', cursive;
     }
 }
 
@@ -282,4 +282,8 @@ a {
 
 .jumbotron {
     margin-bottom: 0;
+    height: 100vh;
+    margin-bottom: 0;
+    background-color: #e9ecef;
+    // font-family: 'Pacifico', cursive;
 }

@@ -106,11 +106,11 @@
     .container {
         display: flex;
         justify-content: space-between;
-        margin: 2rem auto;
+        margin: 3rem auto;
         
         p {
-            display: inline-flex;
             align-self: center;
+            margin-right: 1.5rem;
         }
     
         img {

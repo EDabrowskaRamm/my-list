@@ -11,12 +11,12 @@ export class ListService {
   // get all items from 1 todo array
   getAllItems(items): any {
     if (localStorage.getItem('items') === null ||
+        localStorage.getItem('items') === "" ||
         localStorage.getItem('items') === undefined) {
       localStorage.setItem('items', this.items.toString());
     } else {
       this.items = (localStorage.getItem('items')).split(',');
     }
-
     return this.items;
   }
   // add list items
@@ -35,6 +35,7 @@ export class ListService {
 // get all completed tasks
   getAllCompletedItems(items): any {
     if (localStorage.getItem('completedTasks') === null ||
+        localStorage.getItem('completedTasks') === "" ||
         localStorage.getItem('completedTasks') === undefined) {
       localStorage.setItem('completedTasks', this.completedTasks.toString());
     } else {

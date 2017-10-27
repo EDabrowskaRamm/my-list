@@ -23,6 +23,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.items = this._service.getAllItems(this.items);
     this.completedTasks = this._service.getAllCompletedItems(this.completedTasks);
+    console.log(this.items.length, this.completedTasks.length);
   }
 
 // add list items to todo list
@@ -47,7 +48,7 @@ export class ListComponent implements OnInit {
     return setTimeout(() =>
       this.completedTasks = this._service.removeCompletedItem(task), 300);
   }
-// edit completed task
+// edit completed task and put it to todo
   edit($event) {
     const editedValue = $event.parentElement.nextElementSibling.value;
     this.completedTasks.splice(this.completedTasks.indexOf(editedValue), 1);
