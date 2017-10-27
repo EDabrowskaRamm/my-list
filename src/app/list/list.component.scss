@@ -1,3 +1,17 @@
+// navbar
+.navbar {
+    background-color: #34495e;
+    color: white;
+
+    .logo {
+        font-family: 'Pacifico', cursive !important;
+        font-size: 2.5rem;  
+        color: white;
+        padding-top: 0;
+        padding-bottom: 0;      
+    }
+}
+
 // add item button
 .hbtn {
     position: relative;
@@ -6,9 +20,9 @@
     overflow: hidden;
     padding: 8px 20px;
     text-align: center;
-    border: 2px solid #0275d8;
+    border: 2px solid #c0392b;
     text-decoration: none;
-    background-color: #0275d8;
+    background-color: #c0392b;
     color: rgb(255, 255, 255);
     white-space: nowrap;
     z-index: 0;
@@ -21,7 +35,7 @@
 .hb-fill-bottom-rev-bg-br::before {
     position: absolute;
     content: "";
-    background: #0275d8;
+    background: #c0392b;
     transition-duration: 0.3s;
     z-index: -1;
     top: 0px;
@@ -31,7 +45,7 @@
     width: 100%;
     height: 100%;
     opacity: 1;
-    border: 2px solid #0275d8;
+    border: 2px solid #c0392b;
 } 
 
 .hb-fill-bottom-rev-bg-br:hover::before {
@@ -42,7 +56,7 @@
 
 .hb-fill-bottom-rev-bg-br:hover {
     background: rgb(255, 255, 255);
-    color: #0275d8;
+    color: #c0392b;
     transition: all 0.3s ease;
 } 
 
@@ -76,7 +90,7 @@ a {
         &:active, &:focus {
             border: none;
             outline: none;
-            border-bottom: 1px solid #0275d8;
+            border-bottom: 1px solid #c0392b;
         }
     }
     .striked {
@@ -112,7 +126,7 @@ a {
         }
         
         &:hover {
-          border: 5px solid #0275d8;
+          border: 5px solid #c0392b;
         }
     }
       
@@ -159,11 +173,11 @@ a {
           background: rgba(0,0,0,0.1);
         }
         50% {
-          background: #0275d8;
+          background: #c0392b;
           opacity: 0.6;
         }
         100% {
-          background: #0275d8;
+          background: #c0392b;
           opacity: 1;
         }
     }
@@ -198,7 +212,7 @@ a {
             }
             
             &:hover {
-              border: 5px solid #0275d8;
+              border: 5px solid #c0392b;
             }
         }
           
@@ -245,11 +259,11 @@ a {
               background: rgba(0,0,0,0.1);
             }
             50% {
-              background: #0275d8;
+              background: #c0392b;
               opacity: 0.6;
             }
             100% {
-              background: #0275d8;
+              background: #c0392b;
               opacity: 1;
             }
         }
@@ -259,10 +273,10 @@ a {
 
 .card {
     border-bottom-color: transparent;
-    border-radius: .95rem .95rem 0 0;
     .card-header {
-        border-radius: .95rem .95rem 0 0;
+        font-size: 1.5rem;
         font-family: 'Pacifico', cursive;
+        color: #34495e;
     }
 }
 
@@ -284,6 +298,14 @@ a {
     margin-bottom: 0;
     height: 100vh;
     margin-bottom: 0;
-    background-color: #e9ecef;
-    // font-family: 'Pacifico', cursive;
+    background-color: #eaecee;
+}
+
+.input-group {
+    input {
+        &:focus, &:active {
+            // border: none;
+            box-shadow: none;
+        }
+    }
 }

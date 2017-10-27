@@ -1,16 +1,38 @@
 <nav class="navbar navbar-light">
   <div class="container">
-    <a class="navbar-brand logo" routerLink="/list">ToDo</a>
-    <a class="navbar-brand about" (click)="scrollTo(target)">About</a>
+    <a class="navbar-brand logo">ToDo</a>
+    <span>
+      <a class="navbar-brand about" routerLink="/list">Go to app</a>
+      <a class="navbar-brand about" (click)="scrollTo(target)">Tell me more</a>
+    </span>
   </div>  
 </nav>
 <section class="parallax text-center">
   <span>
     <h1>Some text</h1>
-    <a class="hbtn hb-border-top-br3 hpill hpad2 hbor2" routerLink="/list">
+    <a class="hbtn hb-fill-bottom-bg hbor2" routerLink="/list">
       <i class="fa fa-sticky-note-o" aria-hidden="true"></i> Try it
     </a>
   </span>
+</section>
+<section class="features">
+  <div class="container">
+    <div class="text-center" >
+      <i class="fa fa-share-alt" aria-hidden="true"></i>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo veritatis ex voluptates esse corporis beatae quidem eligendi temporibus? 
+        Blanditiis earum nulla totam, odio eum vel. Quam sit aliquam temporibus praesentium.</p>
+    </div> 
+    <div class="text-center" >
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo veritatis ex voluptates esse corporis beatae quidem eligendi temporibus? 
+        Blanditiis earum nulla totam, odio eum vel. Quam sit aliquam temporibus praesentium.</p>
+    </div> 
+    <div class="text-center" >
+      <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo veritatis ex voluptates esse corporis beatae quidem eligendi temporibus? 
+        Blanditiis earum nulla totam, odio eum vel. Quam sit aliquam temporibus praesentium.</p>
+    </div> 
+  </div>  
 </section>
 <section class="about" #target>
   <div class="container">
