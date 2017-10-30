@@ -19,11 +19,14 @@ export class ListComponent implements OnInit {
   show = false;
   completedTasks: any[] = [];
 
+// xx
+  initialValue;
+  newEditedValue;
+  editedItem;
 
   ngOnInit() {
     this.items = this._service.getAllItems(this.items);
     this.completedTasks = this._service.getAllCompletedItems(this.completedTasks);
-    console.log(this.items.length, this.completedTasks.length);
   }
 
 // add list items to todo list
@@ -55,10 +58,21 @@ export class ListComponent implements OnInit {
     this.items.push(editedValue);
     return this.items = this._service.addEditedItem();
   }
+
 // edit item in todo list
-  valuechange(input) {
-    // const newEditedValue = $event.target.value;
-    console.log(input.value);
+  valuechange($event) {
+    // this.newEditedValue = $event.target.value;
+    // this.editedItem = $event.target;
+    this.initialValue = this.items.indexOf($event.target.value);
+    // this.initialValue = this.newEditedValue;
+    // this.items = this._service.removeItem(this.initialValue);
+    // this.items = this._service.addItem(this.newEditedValue);
+    // console.log(this.items);
+    // console.log(this.initialValue);
+    // console.log(this.items[this.initialValue]);
+
+    console.log(this._service.editToDoItem($event));
+    return this.items = this._service.removeItem(this.initialValue);
   }
 
 

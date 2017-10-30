@@ -6,12 +6,16 @@ export class ListService {
   newInputVal;
   completedTasks: any[] = [];
 
+  initialValue;
+  newEditedValue;
+  editedItem;
+
   constructor() { }
 
   // get all items from 1 todo array
   getAllItems(items): any {
     if (localStorage.getItem('items') === null ||
-        localStorage.getItem('items') === "" ||
+        localStorage.getItem('items') === '' ||
         localStorage.getItem('items') === undefined) {
       localStorage.setItem('items', this.items.toString());
     } else {
@@ -35,7 +39,7 @@ export class ListService {
 // get all completed tasks
   getAllCompletedItems(items): any {
     if (localStorage.getItem('completedTasks') === null ||
-        localStorage.getItem('completedTasks') === "" ||
+        localStorage.getItem('completedTasks') === '' ||
         localStorage.getItem('completedTasks') === undefined) {
       localStorage.setItem('completedTasks', this.completedTasks.toString());
     } else {
@@ -63,4 +67,19 @@ export class ListService {
     return this.items;
   }
 
+
+  editToDoItem($event) {
+    this.newEditedValue = $event.target.value;
+    this.editedItem = $event.target;
+    // initialValue jest -1 bo jest na enter :( 
+    this.initialValue = this.items.indexOf($event.target.value);
+
+    this.items = this.items.filter(j => j !== this.initialValue);
+    localStorage.setItem('items', this.items.toString());
+  //   localStorage.setItem('items', this.items.toString());
+  //   localStorage.setItem('completedTasks', this.completedTasks.toString());
+  //   return this.items;
+    console.log(this.newEditedValue, this.editedItem, this.initialValue);
+    // return this.items;
+  }
 }
