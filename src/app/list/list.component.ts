@@ -58,22 +58,13 @@ export class ListComponent implements OnInit {
     this.items.push(editedValue);
     return this.items = this._service.addEditedItem();
   }
-
+// get initial input value to edit
+  initVal($event) {
+    this.initialValue = this._service.getInitVal($event);
+  }
 // edit item in todo list
   valuechange($event) {
-    // this.newEditedValue = $event.target.value;
-    // this.editedItem = $event.target;
-    this.initialValue = this.items.indexOf($event.target.value);
-    // this.initialValue = this.newEditedValue;
-    // this.items = this._service.removeItem(this.initialValue);
-    // this.items = this._service.addItem(this.newEditedValue);
-    // console.log(this.items);
-    // console.log(this.initialValue);
-    // console.log(this.items[this.initialValue]);
-
-    console.log(this._service.editToDoItem($event));
-    return this.items = this._service.removeItem(this.initialValue);
+    return this.items = this._service.editToDoItem($event);
   }
-
 
 }

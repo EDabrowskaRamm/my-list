@@ -3,7 +3,7 @@
     <a class="navbar-brand logo" routerLink="/startpage">ToDo</a>
   </div>  
 </nav>
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotronLike">
   <div class="container">
     <!-- <div class="row">
       <div class="col-md-4 offset-md-4">
@@ -41,7 +41,7 @@
                   </span>
                 </span>
               </label>
-              <input type="text" #itemText value="{{ item }}" (keyup.enter)="valuechange($event)">
+              <input type="text" #itemText value="{{ item }}" (focus)="initVal($event)" (keyup.enter)="valuechange($event)">
               <label class="del">
                 <input class="del__checkbox" type="checkbox" value="{{ i }}" (click)="remove(item)"/>
                 <span class="del__text">

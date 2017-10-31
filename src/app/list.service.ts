@@ -5,10 +5,8 @@ export class ListService {
   items = [];
   newInputVal;
   completedTasks: any[] = [];
-
   initialValue;
   newEditedValue;
-  editedItem;
 
   constructor() { }
 
@@ -66,20 +64,19 @@ export class ListService {
     localStorage.setItem('completedTasks', this.completedTasks.toString());
     return this.items;
   }
-
-
+// get initial edited input value
+  getInitVal($event) {
+    return this.initialValue = this.items.indexOf($event.target.value);
+  }
+// remove old and add new edited item
   editToDoItem($event) {
     this.newEditedValue = $event.target.value;
-    this.editedItem = $event.target;
-    // initialValue jest -1 bo jest na enter :( 
-    this.initialValue = this.items.indexOf($event.target.value);
 
-    this.items = this.items.filter(j => j !== this.initialValue);
+    this.items.splice(this.initialValue, 1);
     localStorage.setItem('items', this.items.toString());
-  //   localStorage.setItem('items', this.items.toString());
-  //   localStorage.setItem('completedTasks', this.completedTasks.toString());
-  //   return this.items;
-    console.log(this.newEditedValue, this.editedItem, this.initialValue);
-    // return this.items;
+    this.items.push(this.newEditedValue);
+    localStorage.setItem('items', this.items.toString());
+
+    return this.items;
   }
 }
