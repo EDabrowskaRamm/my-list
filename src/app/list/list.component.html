@@ -72,7 +72,7 @@
                   </span>
                 </span>
               </label>
-              <input type="text" #itemText value="{{ task }}">
+              <input type="text" #itemText value="{{ task }}" (focus)="initValComp($event)" (keyup.enter)="valuechangeComp($event)">
               <label class="del">
                 <input class="del__checkbox" type="checkbox" value="{{ j }}" (click)="removeComplete(task)"/>
                 <span class="del__text">

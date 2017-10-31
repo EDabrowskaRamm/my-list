@@ -7,6 +7,8 @@ export class ListService {
   completedTasks: any[] = [];
   initialValue;
   newEditedValue;
+  initialValueComp;
+  newEditedValueComp;
 
   constructor() { }
 
@@ -31,6 +33,21 @@ export class ListService {
   removeItem(item) {
     this.items = this.items.filter(j => j !== item);
     localStorage.setItem('items', this.items.toString());
+    return this.items;
+  }
+// get initial edited input value
+  getInitVal($event) {
+    return this.initialValue = this.items.indexOf($event.target.value);
+  }
+// remove old and add new edited item
+  editToDoItem($event) {
+    this.newEditedValue = $event.target.value;
+
+    this.items.splice(this.initialValue, 1);
+    localStorage.setItem('items', this.items.toString());
+    this.items.splice(this.initialValue, 0, this.newEditedValue);
+    localStorage.setItem('items', this.items.toString());
+
     return this.items;
   }
 
@@ -65,18 +82,18 @@ export class ListService {
     return this.items;
   }
 // get initial edited input value
-  getInitVal($event) {
-    return this.initialValue = this.items.indexOf($event.target.value);
+  getInitValComp($event) {
+    return this.initialValueComp = this.completedTasks.indexOf($event.target.value);
   }
 // remove old and add new edited item
-  editToDoItem($event) {
-    this.newEditedValue = $event.target.value;
+  editToDoItemComp($event) {
+    this.newEditedValueComp = $event.target.value;
 
-    this.items.splice(this.initialValue, 1);
-    localStorage.setItem('items', this.items.toString());
-    this.items.push(this.newEditedValue);
-    localStorage.setItem('items', this.items.toString());
+    this.completedTasks.splice(this.initialValueComp, 1);
+    localStorage.setItem('completedTasks', this.completedTasks.toString());
+    this.completedTasks.splice(this.initialValueComp, 0, this.newEditedValueComp);
+    localStorage.setItem('completedTasks', this.completedTasks.toString());
 
-    return this.items;
+    return this.completedTasks;
   }
 }

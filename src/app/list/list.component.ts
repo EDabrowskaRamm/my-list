@@ -13,16 +13,14 @@ export class ListComponent implements OnInit {
 // todo list
   title = 'To do';
   items = [];
-
+  initialValue;
+  newEditedValue;
 // completed list
   completeTitle = 'Done';
   show = false;
   completedTasks: any[] = [];
-
-// xx
-  initialValue;
-  newEditedValue;
-  editedItem;
+  initialValueComp;
+  newEditedValueComp;
 
   ngOnInit() {
     this.items = this._service.getAllItems(this.items);
@@ -39,6 +37,15 @@ export class ListComponent implements OnInit {
   remove(item) {
     return setTimeout(() => this.items = this._service.removeItem(item), 300);
   }
+// get initial input value to edit
+  initVal($event) {
+    this.initialValue = this._service.getInitVal($event);
+  }
+// edit item in todo list
+  valuechange($event) {
+    return this.items = this._service.editToDoItem($event);
+  }
+
 // add completed item to completed list and remove from todo list
   complete($event) {
     const completedValue = $event.parentElement.nextElementSibling.value;
@@ -58,13 +65,13 @@ export class ListComponent implements OnInit {
     this.items.push(editedValue);
     return this.items = this._service.addEditedItem();
   }
-// get initial input value to edit
-  initVal($event) {
-    this.initialValue = this._service.getInitVal($event);
+// get initial input value to edit in completed list
+  initValComp($event) {
+    this.initialValueComp = this._service.getInitValComp($event);
   }
-// edit item in todo list
-  valuechange($event) {
-    return this.items = this._service.editToDoItem($event);
+// edit item in completed list
+  valuechangeComp($event) {
+    return this.completedTasks = this._service.editToDoItemComp($event);
   }
 
 }
