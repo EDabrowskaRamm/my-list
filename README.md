@@ -1,5 +1,10 @@
 # MyList
 
+Is a simple toDo application made with angular4 and bootstrap4.
+Your tasks are saved to localstorage.
+Click here: https://edabrowskaramm.github.io/my-list/
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.6.
 
 ## Development server
